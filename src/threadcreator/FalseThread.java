@@ -12,14 +12,14 @@ public class FalseThread implements Runnable{
 
     @Override
     public void run() {
-        while(sharedResource.flag) {
-//            try {
-//                TimeUnit.MILLISECONDS.sleep(50);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
+        long startTime = System.currentTimeMillis();
+        while(true) {
+            while (sharedResource.flag) {
+                // busy wait (no sleep) to simulate CPU usage
+
+            }
+            System.out.println(Thread.currentThread().getName() + ": True Thread flips the flag ... I am out of loop");
+            sharedResource.flag = true;
         }
-        System.out.println(Thread.currentThread().getName() + ": True Thread flips the flag ... I am out of loop");
-        sharedResource.flag = true;
     }
 }
