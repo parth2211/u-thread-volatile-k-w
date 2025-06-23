@@ -1,7 +1,7 @@
 package threadcreator;
 
 public class SharedResource {
-    boolean flag;
+    volatile boolean flag;
 
     public SharedResource(boolean flag) {
         this.flag = flag;
